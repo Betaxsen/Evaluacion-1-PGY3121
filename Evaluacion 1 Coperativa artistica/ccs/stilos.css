@@ -1,0 +1,73 @@
+.inicio{
+    float: left;
+}
+.botones{
+    float: right;
+    height: 5px;
+   
+}
+a:link{
+    color: rgb(0, 0, 0);
+}
+.imgnos{
+    display:block;
+    margin:auto;
+}
+.map{
+   
+  float: right;
+  margin: 2%;
+  width: 20%;
+    
+   
+}
+.contacto{
+   
+    margin: 10%;
+    float: left;
+    width: 50%;
+    
+
+}
+.card{
+    margin: 2%;
+}
+
+.margeningresos{
+    width: 20%;
+    height: max-content;
+
+}
+.nos{
+    margin: 5%
+}
+
+
+.imgmuestra{
+
+    margin: 2%;
+    float: left;
+    width: 20%;
+    block-size: auto;
+    
+    
+}
+.detalle{
+    
+  
+  float: right;
+  
+    margin: 2%;
+width: 40%;
+    
+  
+}
+.precio{
+   float: left;
+   margin-top: 25%;
+ 
+  bottom: 10x;
+}
+h1{
+    margin-left: 6%;
+}
