@@ -16,17 +16,17 @@ a:link{
 .map{
 
  
-  float: right;
+  float: left;
   margin: 2%;
-  width: 200px;
+  width: 100px;
     
    
 }
 .contacto{
    display: block;
-    margin: 10%;
+    margin: 50px;
     float: left;
-    width: 50%;
+    width: 550px;
     
 
 }
@@ -75,4 +75,9 @@ a:link{
 }
 h1{
     margin-left: 6%;
+}
+.buscar{
+    float: left;
+    width: 150px; 
+    margin : 10px;
 }
