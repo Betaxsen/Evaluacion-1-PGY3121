@@ -263,16 +263,15 @@
         function showPosition(position) {
   
         var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&units=metric&lang=es&appid=2e467162672d1fb05844849d554cd479';
-        var lugar = "  ";
+    
         $.get( url ,function(data) {
         
             console.log(data.name);
             console.log(data.main.temp);
             console.log(data.weather[0].description);
             console.log(data.weather[0].icon);
-            lugar = data.name + " "; 
-            x.innerHTML = "Ciudad     : " + lugar +
-                      "<br>Temperatura: " + data.main.temp + "°C" +
+         
+            x.innerHTML = "Temperatura: " + data.main.temp + "°C" +
                       "<br>Clima      : " + data.weather[0].description;
             
             var iconcode = data.weather[0].icon;
