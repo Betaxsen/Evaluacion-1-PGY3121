@@ -1,0 +1,83 @@
+.inicio{
+    float: left;
+}
+.botones{
+    float: right;
+    height: 5px;
+   
+}
+a:link{
+    color: rgb(0, 0, 0);
+}
+.imgnos{
+    display:block;
+    margin:auto;
+}
+.map{
+
+ 
+  float: left;
+  margin: 2%;
+  width: 100px;
+    
+   
+}
+.contacto{
+   display: block;
+    margin: 50px;
+    float: left;
+    width: 550px;
+    
+
+}
+.card{
+    margin: 2%;
+}
+
+.margeningresos{
+    width: 20%;
+    height: max-content;
+
+}
+.nos{
+    margin: 5%
+}
+
+
+.imgmuestra{
+
+    margin: 2%;
+    float: left;
+  
+ 
+  
+  margin-bottom: 70%;
+   
+    
+    
+}
+.detalle{
+ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  float: right;
+  
+    margin: 2%;
+    width: 400px;
+    
+  
+}
+.precio{
+   float: left;
+   margin-top: 25%;
+ 
+  bottom: 10x;
+}
+h1{
+    margin-left: 6%;
+}
+.buscar{
+    float: left;
+    width: 150px; 
+    margin : 10px;
+}

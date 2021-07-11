@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/stilos.css' %}">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body> 
+    
+    <div class="botones" >
+      <a href="../Otros/Iniciar sesion.html" type="button" class="btn btn-dark">Iniciar Sesion</button></a>
+      <a href="../Otros/Registrarse.html"><button type="button" class="btn btn-dark">Registrarse</button></a>
+
+   
+</div>
+
+<div class="inicio">
+  <img src="https://imageshack.com/i/pnOOAYoyp" 
+  alt="" width="40px" height="40px" >
+        </div>
+<h1>Grupo Cero</h1> 
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+       
+
+        
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Index.html">Home</a>
+              </li>
+         
+
+
+     
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Articulos
+                </a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="../Articulos/todos.html">Todos</a></li>
+                  <li><a class="dropdown-item" href="../Articulos/Cuadros.html">Cuadros</a></li>
+                  <li><a class="dropdown-item" href="../Articulos/Ceramicas.html">Ceramicas</a></li>
+                  <!--<li><hr class="dropdown-divider"></li>-->
+                  <li><a class="dropdown-item" href="../Articulos/Accsesorios.html">Accesorios</a></li>
+                </ul>
+              </li>
+
+
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Artistas
+                </a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="../Artistas/Todos.html">Todos</a></li>
+                  <li><a class="dropdown-item" href="../Artistas/Pedro.html">Pedro</a></li>
+                  <li><a class="dropdown-item" href="../Artistas/juan.html">Juan</a></li>
+                
+                  <li><a class="dropdown-item" href="../Artistas/Diego.html">Diego</a></li>
+                </ul>
+
+
+
+
+
+             
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Otros/Nosotros.html">Nosotros</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Otros/Contacto.html">Contacto</a>
+              </li>
+
+            </ul>
+      
+          </div>
+        </div>
+      </nav>
+
+
+            
+
+</div>
+
+
+
+
+
+<h1>Nombre Objeto</h1>
+
+<div class="imgmuestra">
+
+  <style type="text/css">
+    #gallery { display: none; }
+    #jgal {padding:0;margin:0;list-style: none; width: 160px; }
+    #jgal li { opacity: .5;filter:alpha(opacity=50); float: left; display: block; width: 60px; height: 60px; background-position: 50% 50%; cursor: pointer; border: 3px solid #fff; outline: 1px solid #ddd; margin-right: 10px; margin-bottom: 10px; }
+    #jgal li img { position: absolute; top: 20px; left: 160px; display: none; }
+    #jgal li.active img { display: flex; width: 400px;;height: 400px; margin: 8px; } 
+    #jgal li.active, #jgal li:hover { outline-color: #bbb; opacity: .99;filter:alpha(opacity=99);}
+    </style>
+
+  <script  style="align-items: center;" type="text/javascript">
+    //<![CDATA[
+    var gal = {
+    init : function() {
+    if (!document.getElementById || !document.createElement || !document.appendChild) return false;
+    if (document.getElementById('gallery')) document.getElementById('gallery').id = 'jgal';
+    var li = document.getElementById('jgal').getElementsByTagName('li');
+    li[0].className = 'active';
+    for (i=0; i<li.length; i++) {
+    li[i].style.backgroundImage = 'url(' + li[i].getElementsByTagName('img')[0].src + ')';
+    li[i].title = li[i].getElementsByTagName('img')[0].alt;
+    gal.addEvent(li[i],'click',function() {
+    var im = document.getElementById('jgal').getElementsByTagName('li');
+    for (j=0; j<im.length; j++) {
+    im[j].className = '';
+    }
+    this.className = 'active';
+    });
+    }
+    },
+    addEvent : function(obj, type, fn) {
+    if (obj.addEventListener) {
+    obj.addEventListener(type, fn, false);
+    }
+    else if (obj.attachEvent) {
+    obj["e"+type+fn] = fn;
+    obj[type+fn] = function() { obj["e"+type+fn]( window.event ); }
+    obj.attachEvent("on"+type, obj[type+fn]);
+    }
+    }
+    }
+    gal.addEvent(window,'load', function() {
+    gal.init();
+    });
+    //]]>
+
+    </script>
+
+<div style="position:relative;">
+  <ul id="gallery">
+  <li><img src="https://picsum.photos/402/400" alt="" /></li>
+  <li><img src="https://picsum.photos/401/400" alt="" /></li>
+  <li><img src="https://picsum.photos/402/402" alt="" /></li>
+  <li><img src="https://picsum.photos/400/400" alt="" /></li>
+  </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="detalle">
+<p >Detalle:</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at nibh et sapien hendrerit volutpat nec at orci. Duis lacus leo, aliquam ac arcu quis, pellentesque efficitur orci. Nulla commodo porttitor tortor et tempus. Aliquam scelerisque vulputate diam quis pharetra. Nullam dictum consequat sodales. Nullam lacus enim, scelerisque id faucibus ac, pellentesque vitae ante. Integer tristique euismod est, consequat venenatis sapien rhoncus nec. Quisque malesuada gravida odio ac condimentum. Aliquam sagittis, nunc ac rhoncus aliquet, magna libero congue tellus, id porta lectus elit ac justo. Sed a lorem convallis, interdum erat non, blandit arcu. Etiam gravida sapien sem, eu cursus est tempor vel. Fusce nec ultrices velit.</p>
+<p>Artista:</p>
+
+<div class="precio">
+
+  <p style="float: left; margin-right: 75px "p>Precio: $000000000000 </p>
+  <a href="../Otros/Contacto.html"><buttontype="button" style="margin-left: 200px;" class="btn btn-dark">Contactar</button></a>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>

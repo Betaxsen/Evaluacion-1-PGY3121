@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Holas</h1>
+        </div>
+    </div>
+    <div class="row">
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>   
+                    <input type="email" class="form-control" id="email" name="email">    
+                </div>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar" >
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Enviar" href="principal">
+                <a href="principal" class="btn btn-dark">Ver</a>
+            </form>
+        </div>
+
+    {% load static %}
+
+    <div class="row">
+        <img src="{% static 'core/img/imagen1.gif' %}" alt"">
+    </div>
+
+</body>
+</html>
