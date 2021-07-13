@@ -1,14 +1,21 @@
 from django.shortcuts import render
+from core.models import obra
 
 # Create your views here.
 
 def home(request):
-
     return render(request, 'core/home.html')
 
 def principal(request):
-    contexto = {"nombre":"bulbasaur"}
-    return render(request, 'core/principal.html',contexto)
+    obras = obra.objects.all()
+    datos = {
+        "obras":obras
+    }
+    return render(request, 'core/principal.html',datos)
 
-def  elemento(request):
-    return render(request, 'core/objetos/ejemplo1.html')
+def elemento(request,id): 
+    obras = obra.objects.get(idObra = id)
+    datos = {
+        "obras":obras
+    } 
+    return render(request, 'core/objetos/elemento.html', datos)
