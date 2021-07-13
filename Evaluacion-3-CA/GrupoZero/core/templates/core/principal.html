@@ -17,90 +17,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Fin meta, css y bootstrap-->
 
+    <script>
+      var listaobras = {{obras}};
+    </script>
 
-    <!--
+
+    <!-- reload el div del buscador -->
     <script> 
     
        $(document).ready(function(){
-      
-          var urlbase = "https://api.artic.edu/api/v1/artworks?ids=27992,28560&fields=id,title,image_id";
-          var urlbase1 ="https://api.artic.edu/api/v1/artworks"
-          
-    
-          $.get(urlbase1,function(data1){
-                $("#traeobras").empty();
-    
-              $.each(data1.data, function(i,info){
-    
-                  //busca imagen
-                  var urlsim = data1.config.iiif_url;
-                  var urlimg = `${urlsim}/${info.image_id}/full/843,/0/default.jpg`;
-    
-        //trae info general como carta
-        var pintura = `<div class="card m-3" style="width: 18rem;">
-                                      <img src="${urlimg}" class="card-img-top" alt="500px">
-                                      <div class="card-body">
-                                          <h2 class="card-text"> ${info.id} </h2>
-                                          <h5 class="card-title">${info.title}</h5>
-                                          <p class="card-text">${info.artist_display}</p>
-                                          <a href="elemento" class="btn btn-dark">Ver</a>
-                                           
-                                      </div>
-                                  </div>`
-                                  $("#traeobras").append(pintura);
-    
-                
-      //----------------trae info busqueda
-      $("#buscar").click(function(){
-        $("#traeobras").empty();
-        
-                          var tipo = document.elegir.tipobusqueda.value;
-                          var data = [];
-
-        $("#dataForm").submit(function(event) {
-            event.preventDefault();
-            data.push($(this).find('input[name="data"]').val());
-            
-            
-      if(tipo =="1"){
-          var tipo1 = info.artist_display.split(' ')[0].toUpperCase(); //toma dos primeras palabras en este caso el nombre
-      }if(tipo =="2"){
-          var tipo1 =info.title.toUpperCase()
-      }if(tipo =="3"){
-          var tipo1 =info.id;
-      }
-        //trae info como carta
-    
-        var dataf =`${data}`.toUpperCase();
-        console.log(`${dataf}`);
-        if (tipo1 == dataf){
-          
-                      var pintura = `<div class="card m-3" style="width: 18rem;">
-                                      <img src="${urlimg}" class="card-img-top" alt="500px">
-                                      <div class="card-body">
-                                          <h2 class="card-text"> ${info.id} </h2>
-                                          <h5 class="card-title">${info.title}</h5>
-                                          <p class="card-text">${info.artist_display}</p>
-                                          <a href="../Objetos/ejemplo1.html" class="btn btn-dark">Ver</a>
-                                           
-                                      </div>
-                                  </div>`
-                                  $("#traeobras").append(pintura);
-                                }
-                              })
-                            });
-    
-    
-                            
-          })
-        })
-        })
-    
-    
-    
-    
+            $("#Buscar").click(function(){
+              $("#traeobras").load(" #traeobras > *");
+         // $.get(urlbase1,function(data1){
+            })
+      })
     </script>
-    -->
 
   
 </head>
@@ -118,7 +49,6 @@
     </div>
   </div>
   
-<!-- pseudo navbar desde acá -->
 
   <div class="row">
        <div class="col-1"> 
@@ -180,10 +110,6 @@
                 </ul>
 
 
-
-
-
-             
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./otros/Nosotros.html">Nosotros</a>
               </li>
@@ -193,8 +119,6 @@
               </li>
 
             </ul>
-           
-
              
             </form>
           </div>
@@ -204,7 +128,6 @@
 
   </div>
 
-<!-- Hasta acá -->
 
 
   <div class="row">
@@ -246,17 +169,21 @@
 
         <div class="buscar">
 
-            <form name="elegir" >
+            <form  name="elegir">
+
+            <!--form " -->
               <h2>Busqueda</h2>
       
               <input type="Radio" name="tipobusqueda" value="1"> Artista <br>
               <input type="Radio" name="tipobusqueda" value="2"> Obra <br>
               <input type="Radio" name="tipobusqueda" value="3"> Id <br>
             </form>
-      
-            <form  id="dataForm" >
-              <input id="data" name="data" class="form-control" type="text" value=""> <br>
-              <input id ="buscar" class="btn btn-dark" value="Buscar" type="submit"> 
+    
+            <form  id="dataForm"  >
+
+              <input id="dato" name="dato" class="form-control" type="text" value=""> <br>
+              <input id ="buscar" class="btn btn-dark" value="Buscar" type="submit" onclick="return false"> 
+            
             </form>
 
         </div>
@@ -265,23 +192,26 @@
   </div>
 
 
-  <div class ="row" id="traeobras">
+  <div class ="row" id="traeobras" name="traeobras">
     
 
     {% for ob in obras %}
-    <div class="card m-3" style="width: 18rem;">
-      <!--la imagen no carga bien, arreglar / ARREGLADO :D -->
+         
+        <div class="card m-3" style="width: 18rem;">
 
-      <img src= '{% static  ob.imagen|cut:"core/static/"  %}' class="card-img-top" alt="500px">
+          <img src= '{% static  ob.imagen|cut:"core/static/"  %}' class="card-img-top" alt="500px">
 
-      <div class="card-body">
-        <h2 class="card-text">{{ob.idObra}}</h2>
-        <h5 class="card-title">{{ob.detalle}}</h5>
-        <p class="card-text">{{ob.artista}}</p>
-        <a href="{% url 'elemento' ob.idObra %}" class="btn btn-dark" >Ver</a> 
+          <div class="card-body">
 
-      </div>
-    </div>
+            <h2 class="card-text">{{ob.idObra}}</h2>
+            <h5 class="card-title">{{ob.detalle}}</h5>
+            <p class="card-text">{{ob.artista}}</p>
+            <a href="{% url 'elemento' ob.idObra %}" class="btn btn-dark" >Ver</a> 
+
+          </div>
+
+        </div> 
+
     {% endfor %}
   
 
