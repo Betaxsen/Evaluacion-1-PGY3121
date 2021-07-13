@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ obras.detalle }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/stilos.css' %}">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body> 
+    
+
+  <div class="container-fluid">
+
+
+    <div class="row">
+      <div class="col-1"> </div>
+      <div class="col-11"> 
+    
+        <div class="botones" >
+            <a href="./Otros/Iniciar sesion.html" type="button" class="btn btn-dark">Iniciar Sesion</button></a>
+            <a href="./Otros/Registrarse.html"><button type="button" class="btn btn-dark">Registrarse</button></a>
+        </div>
+      </div>
+    </div>
+    
+  <!-- pseudo navbar desde acá -->
+
+    <div class="row">
+        <div class="col-1"> 
+          <img src="https://imageshack.com/i/pnOOAYoyp"  alt="" width="60px" height="60px" > 
+        </div> 
+        <div class="col-3">  <h1>Grupo Cero</h1> </div>
+        <div class="col-3"> </div>
+        <!--div class="col-2"> <p id="demo"></p> </div>
+        <div class="col-1"> <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> </div-->
+    </div>
+    
+      
+    <div class="row"> </div>
+      
+    <div class="row">
+      
+      <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'principal' %}">Home</a>
+                </li>
+          
+
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Articulos
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="./articulos/todos.html">Todos</a></li>
+                    <li><a class="dropdown-item" href="./articulos/Cuadros.html">Cuadros</a></li>
+                    <li><a class="dropdown-item" href="./articulos/Ceramicas.html">Ceramicas</a></li>
+                    <!--<li><hr class="dropdown-divider"></li>-->
+                    <li><a class="dropdown-item" href="./articulos/Accesorios.html">Accesorios</a></li>
+                  </ul>
+                </li>
+
+
+
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Artistas
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="./artistas/Todos.html">Todos</a></li>
+                    <li><a class="dropdown-item" href="./artistas/Pedro.html">Pedro</a></li>
+                    <li><a class="dropdown-item" href="./artistas/juan.html">Juan</a></li>
+                  
+                    <li><a class="dropdown-item" href="./artistas/Diego.html">Diego</a></li>
+                  </ul>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="./otros/Nosotros.html">Nosotros</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="./otros/Contacto.html">Contacto</a>
+                </li>
+
+              </ul>
+            
+
+              
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+    </div>
+
+  <!-- Hasta acá -->
+
+
+    <div class="row justify-content-center">
+      <div class="col-3 align-self-center">
+        <h1>{{ obras.detalle }}</h1>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      
+      <div class="col-3 align-self-start">
+        <div class="row"></div> 
+
+        <div class="row justify-content-center">
+          <img src= '{% static  obras.imagen|cut:"core/static/"  %}' >
+        </div>  
+
+      </div>
+
+      <div class="col-1"> </div>
+
+      <div class="col-3 align-self-center">
+        
+          <p >Detalle:</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at nibh et sapien hendrerit volutpat nec at orci. Duis lacus leo, aliquam ac arcu quis, pellentesque efficitur orci. Nulla commodo porttitor tortor et tempus. Aliquam scelerisque vulputate diam quis pharetra. Nullam dictum consequat sodales. Nullam lacus enim, scelerisque id faucibus ac, pellentesque vitae ante. Integer tristique euismod est, consequat venenatis sapien rhoncus nec. Quisque malesuada gravida odio ac condimentum. Aliquam sagittis, nunc ac rhoncus aliquet, magna libero congue tellus, id porta lectus elit ac justo. Sed a lorem convallis, interdum erat non, blandit arcu.</p>
+          <p>Artista: {{obras.artista}} </p>
+
+          <div class="Precio">
+            <p style="float: left; margin-right: 75px "p>Precio: $ {{obras.valor}} </p>
+            <a href="../Otros/Contacto.html"><buttontype="button" style="margin-left: 200px;" class="btn btn-dark">Contactar</button></a>
+          </div>
+        
+      </div>
+
+    </div>
+
+
+   
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
