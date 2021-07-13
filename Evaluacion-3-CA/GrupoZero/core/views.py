@@ -8,10 +8,15 @@ def home(request):
 
 def principal(request):
     obras = obra.objects.all()
+    buscar = ""
+    texto = ""
     datos = {
-        "obras":obras
+        "obras":obras,
+        "buscar":buscar,
+        "texto":texto
     }
     return render(request, 'core/principal.html',datos)
+
 
 def elemento(request,id): 
     obras = obra.objects.get(idObra = id)
