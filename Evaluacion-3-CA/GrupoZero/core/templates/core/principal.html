@@ -18,90 +18,6 @@
     <!-- Fin meta, css y bootstrap-->
 
 
-    <!--
-    <script> 
-    
-       $(document).ready(function(){
-      
-          var urlbase = "https://api.artic.edu/api/v1/artworks?ids=27992,28560&fields=id,title,image_id";
-          var urlbase1 ="https://api.artic.edu/api/v1/artworks"
-          
-    
-          $.get(urlbase1,function(data1){
-                $("#traeobras").empty();
-    
-              $.each(data1.data, function(i,info){
-    
-                  //busca imagen
-                  var urlsim = data1.config.iiif_url;
-                  var urlimg = `${urlsim}/${info.image_id}/full/843,/0/default.jpg`;
-    
-        //trae info general como carta
-        var pintura = `<div class="card m-3" style="width: 18rem;">
-                                      <img src="${urlimg}" class="card-img-top" alt="500px">
-                                      <div class="card-body">
-                                          <h2 class="card-text"> ${info.id} </h2>
-                                          <h5 class="card-title">${info.title}</h5>
-                                          <p class="card-text">${info.artist_display}</p>
-                                          <a href="elemento" class="btn btn-dark">Ver</a>
-                                           
-                                      </div>
-                                  </div>`
-                                  $("#traeobras").append(pintura);
-    
-                
-      //----------------trae info busqueda
-      $("#buscar").click(function(){
-        $("#traeobras").empty();
-        
-                          var tipo = document.elegir.tipobusqueda.value;
-                          var data = [];
-
-        $("#dataForm").submit(function(event) {
-            event.preventDefault();
-            data.push($(this).find('input[name="data"]').val());
-            
-            
-      if(tipo =="1"){
-          var tipo1 = info.artist_display.split(' ')[0].toUpperCase(); //toma dos primeras palabras en este caso el nombre
-      }if(tipo =="2"){
-          var tipo1 =info.title.toUpperCase()
-      }if(tipo =="3"){
-          var tipo1 =info.id;
-      }
-        //trae info como carta
-    
-        var dataf =`${data}`.toUpperCase();
-        console.log(`${dataf}`);
-        if (tipo1 == dataf){
-          
-                      var pintura = `<div class="card m-3" style="width: 18rem;">
-                                      <img src="${urlimg}" class="card-img-top" alt="500px">
-                                      <div class="card-body">
-                                          <h2 class="card-text"> ${info.id} </h2>
-                                          <h5 class="card-title">${info.title}</h5>
-                                          <p class="card-text">${info.artist_display}</p>
-                                          <a href="../Objetos/ejemplo1.html" class="btn btn-dark">Ver</a>
-                                           
-                                      </div>
-                                  </div>`
-                                  $("#traeobras").append(pintura);
-                                }
-                              })
-                            });
-    
-    
-                            
-          })
-        })
-        })
-    
-    
-    
-    
-    </script>
-    -->
-
   
 </head>
 
@@ -125,9 +41,7 @@
          <img src="https://imageshack.com/i/pnOOAYoyp"  alt="" width="60px" height="60px" > 
        </div> 
        <div class="col-3">  <h1>Grupo Cero</h1> </div>
-       <div class="col-3"> </div>
-       <div class="col-2"> <p id="demo"></p> </div>
-       <div class="col-1"> <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> </div>
+     
   </div>
   
     
@@ -185,11 +99,11 @@
 
              
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./otros/Nosotros.html">Nosotros</a>
+                <a class="nav-link active" aria-current="page" href="nosotros">Nosotros</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./otros/Contacto.html">Contacto</a>
+                <a class="nav-link active" aria-current="page" href="contacto">Contacto</a>
               </li>
 
             </ul>
@@ -214,17 +128,19 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+       
         <div class="carousel-inner">
+             {% for ob in obras %}
           <div class="carousel-item active">
-            <a href="./Objetos/ejemplo1.html"><img src="https://picsum.photos/400/400" class="d-block w-100" alt="..."  height="400px"></a>
+          
+            <a href="{% url 'elemento' ob.idObra %}"><img src= '{% static  ob.imagen|cut:"core/static/"  %}' class="d-block w-100" alt="..."  height="400px"></a>
+           
           </div>
-          <div class="carousel-item">
-            <a href="./Objetos/ejemplo1.html"><img src="https://picsum.photos/401/400" class="d-block w-100" alt="..."  height="400px"></a>
-          </div>
-          <div class="carousel-item">
-            <a href="./Objetos/ejemplo1.html"><img src="https://picsum.photos/400/401" class="d-block w-100" alt="..."  height="400px"></a>
-          </div>
+          {% endfor %}
+     
+      
         </div>
+           
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -238,31 +154,7 @@
   </div>
 
 
-  <div class="row">
-
-      <div class ="col-1"></div>
-
-      <div class ="col-10">
-
-        <div class="buscar">
-
-            <form name="elegir" >
-              <h2>Busqueda</h2>
-      
-              <input type="Radio" name="tipobusqueda" value="1"> Artista <br>
-              <input type="Radio" name="tipobusqueda" value="2"> Obra <br>
-              <input type="Radio" name="tipobusqueda" value="3"> Id <br>
-            </form>
-      
-            <form  id="dataForm" >
-              <input id="data" name="data" class="form-control" type="text" value=""> <br>
-              <input id ="buscar" class="btn btn-dark" value="Buscar" type="submit"> 
-            </form>
-
-        </div>
-
-      </div>
-  </div>
+ 
 
 
   <div class ="row" id="traeobras">

@@ -92,11 +92,11 @@
                   </ul>
 
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./otros/Nosotros.html">Nosotros</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'nosotros' %}">Nosotros</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./otros/Contacto.html">Contacto</a>
+                  <a class="nav-link active" aria-current="page" href="{% url 'contacto' %}">Contacto</a>
                 </li>
 
               </ul>
@@ -142,7 +142,7 @@
 
           <div class="Precio">
             <p style="float: left; margin-right: 75px "p>Precio: $ {{obras.valor}} </p>
-            <a href="../Otros/Contacto.html"><buttontype="button" style="margin-left: 200px;" class="btn btn-dark">Contactar</button></a>
+            <a href="{% url 'contacto' %}"><buttontype="button" style="margin-left: 200px;" class="btn btn-dark">Contactar</button></a>
           </div>
         
       </div>

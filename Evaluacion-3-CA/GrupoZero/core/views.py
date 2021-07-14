@@ -19,3 +19,19 @@ def elemento(request,id):
         "obras":obras
     } 
     return render(request, 'core/objetos/elemento.html', datos)
+
+
+
+
+
+
+def nosotros(request):
+  
+   
+    return render(request, 'core/otros/Nosotros.html')
+    
+
+def contacto(request):
+  
+   
+    return render(request, 'core/otros/Contacto.html')

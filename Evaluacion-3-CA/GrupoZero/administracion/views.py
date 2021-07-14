@@ -8,7 +8,6 @@ from administracion.form_mod import obraForm
 
 
 
-
 def form_agregar(request):
     datos={
         'form':obraForm
@@ -56,23 +55,29 @@ def administracion(request):
 
 
 def sesionadministracion(request,):
-    usuarios= usuario.objects.all()
+ 
+ 
+
     datos={
-        'form':usuarioForm #(instance=usuarion)
+        'form':usuarioForm 
     }
+ 
 
-    return render(request, 'core/sesionadministracion.html',datos)
-
-def iniciosesion(request,id):
-    usuarios = usuario.objects.get(usuario = id)
-    datos = {
-        'form':usuarioForm(instance=usuarios)
-    }
-    if usuarios.contraseña == form.cleaned_data('usuario') :
-        return redirect(to="administracion")
   
-    datos['mensaje'] = "usuario o contraseña incorrecta"
+  
     return render(request, 'core/sesionadministracion.html',datos)
 
+
+
+
+
+def iniciosesion(request):
+    usuarios = usuario.object.get(usuario =  request.post('usuario','') )#al usuarios le pasamos el usuario que ya fue comparado con la base de datos
+    if usuarios.contraseña == request.post('','contraseña') :#del usuario de la base de datos ya comparada obtenemos la contrasena y la comparamos con la ingresada
+       return redirect(to="administracion")#si es correcto pasamos a administracion
+  
+    return redirect(to="sesionadministracion")  #si no es correcta devolvemos a  sesionadministracion
+  
+   
 
 
