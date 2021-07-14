@@ -58,8 +58,21 @@ def administracion(request):
 def sesionadministracion(request,):
     usuarios= usuario.objects.all()
     datos={
-        'usuarios':usuarios #(instance=usuarion)
+        'form':usuarioForm #(instance=usuarion)
     }
-  
+
     return render(request, 'core/sesionadministracion.html',datos)
+
+def iniciosesion(request,id):
+    usuarios = usuario.objects.get(usuario = id)
+    datos = {
+        'form':usuarioForm(instance=usuarios)
+    }
+    if usuarios.contraseña == form.cleaned_data('usuario') :
+        return redirect(to="administracion")
+  
+    datos['mensaje'] = "usuario o contraseña incorrecta"
+    return render(request, 'core/sesionadministracion.html',datos)
+
+
 

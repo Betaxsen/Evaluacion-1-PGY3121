@@ -18,37 +18,19 @@
         </div>
 <h1>Grupo Cero</h1> 
 
+
    
-
-
-        <table>
-          <tr>
-              <td>usuario</td>
-              <td>contraseña</td>
-             
-          </tr>
-          {% for us in usuarios %}
-          <tr>
-              <td>{{us.usuario}}</td>
-              <td>{{us.contraseña}}</td>
-              
-             
-          </tr>
-          {%endfor%}
-      </table>
-
-
-    <div style="margin: 10%;">
     <form action="" method="post" id="formulario">
       {% csrf_token %}
       <div class="form-group">
           {{form.as_table}}
   
       </div>
+    
       <input style="margin-left: 400px;" type="submit"class="btn-dark" id="enviar" value="Iniciar Sesion">
+    
       
-    </div>
-  
+ 
   
   </form>
   
