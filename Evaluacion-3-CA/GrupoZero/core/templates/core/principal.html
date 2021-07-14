@@ -28,7 +28,7 @@
     <div class="col-11"> 
   
       <div class="botones" >
-          <a href="./Otros/Iniciar sesion.html" type="button" class="btn btn-dark">Iniciar Sesion</button></a>
+          <a href="pantallalogin" type="button" class="btn btn-dark">Iniciar Sesion</button></a>
           <a href="./Otros/Registrarse.html"><button type="button" class="btn btn-dark">Registrarse</button></a>
       </div>
     </div>
@@ -63,8 +63,6 @@
                 <a class="nav-link active" aria-current="page" href="principal">Home</a>
               </li>
          
-
-
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Articulos
@@ -73,7 +71,6 @@
                     <li><a class="dropdown-item" href="./articulos/todos.html">Todos</a></li>
                   <li><a class="dropdown-item" href="./articulos/Cuadros.html">Cuadros</a></li>
                   <li><a class="dropdown-item" href="./articulos/Ceramicas.html">Ceramicas</a></li>
-                  <!--<li><hr class="dropdown-divider"></li>-->
                   <li><a class="dropdown-item" href="./articulos/Accesorios.html">Accesorios</a></li>
                 </ul>
               </li>
@@ -133,7 +130,9 @@
              {% for ob in obras %}
           <div class="carousel-item active">
           
-            <a href="{% url 'elemento' ob.idObra %}"><img src= '{% static  ob.imagen|cut:"core/static/"  %}' class="d-block w-100" alt="..."  height="400px"></a>
+            <a href="{% url 'elemento' ob.idObra %}">
+              <img src= '{% static  ob.imagen|cut:"core/static/"  %}' class="d-block w-100" alt="..."  height="400px">
+            </a>
            
           </div>
           {% endfor %}

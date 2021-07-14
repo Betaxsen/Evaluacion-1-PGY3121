@@ -39,7 +39,6 @@ def form_modificar(request,id):
 
 def form_del_obra(request,id):
     vehiculo = obra.objects.get(idObra = id)
-    
     vehiculo.delete()
 
     return redirect(to="administracion")
@@ -54,29 +53,23 @@ def administracion(request):
 
 
 
-def sesionadministracion(request,):
- 
- 
-
+def sesionadministracion(request):
     datos={
         'form':usuarioForm 
-    }
- 
-
-  
-  
+    } 
     return render(request, 'core/sesionadministracion.html',datos)
 
+def pantallalogin(request):
 
-
-
+    return render(request, 'core/otros/iniciar_sesion.html')
 
 def iniciosesion(request):
-    usuarios = usuario.object.get(usuario =  request.post('usuario','') )#al usuarios le pasamos el usuario que ya fue comparado con la base de datos
-    if usuarios.contraseña == request.post('','contraseña') :#del usuario de la base de datos ya comparada obtenemos la contrasena y la comparamos con la ingresada
+    bandeja = usuario.objects.get( nombre =  request.POST.get('formnombre',''))#al usuarios le pasamos el usuario que ya fue comparado con la base de datos
+    
+    if bandeja.contrasena == request.POST.get('formpass','') :#del usuario de la base de datos ya comparada obtenemos la contrasena y la comparamos con la ingresada
        return redirect(to="administracion")#si es correcto pasamos a administracion
   
-    return redirect(to="sesionadministracion")  #si no es correcta devolvemos a  sesionadministracion
+    return redirect(to="sesionadministracion") #si no es correcta devolvemos a  sesionadministracion
   
    
 

@@ -8,6 +8,6 @@ from administracion.models import  usuario
 class usuarioForm(ModelForm):
     class Meta:
         model = usuario
-        fields = ['usuario', 'contraseña']
+        fields = ['nombre', 'contrasena']
 
  

@@ -4,9 +4,6 @@ from core.models import obra
 # Create your views here.
 
 def home(request):
-    return render(request, 'core/home.html')
-
-def principal(request):
     obras = obra.objects.all()
     datos = {
         "obras":obras
@@ -21,17 +18,17 @@ def elemento(request,id):
     return render(request, 'core/objetos/elemento.html', datos)
 
 
-
-
-
-
 def nosotros(request):
   
-   
     return render(request, 'core/otros/Nosotros.html')
     
 
 def contacto(request):
-  
    
     return render(request, 'core/otros/Contacto.html')
+
+def sesionadministracion(request):
+
+    return render(request, 'core/sesionadministracion.html')
+
+

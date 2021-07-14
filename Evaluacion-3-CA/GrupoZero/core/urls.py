@@ -1,10 +1,9 @@
 from django.urls import path
-from core.views import home, principal, elemento, contacto,nosotros
-from administracion.views import sesionadministracion, administracion,form_agregar,form_modificar,form_del_obra, iniciosesion
+from core.views import home, elemento, contacto, nosotros
+from administracion.views import pantallalogin,sesionadministracion, administracion,form_agregar,form_modificar,form_del_obra, iniciosesion
 
 urlpatterns = [
     path('',home,name="home"),
-    path('principal',principal,name="principal"),
     path('elemento/<id>',elemento,name="elemento"),
     path('sesionadministracion',sesionadministracion,name="sesionadministracion"),
     path('administracion',administracion,name="administracion"),
@@ -13,6 +12,7 @@ urlpatterns = [
     path('form-eliminar/<id>',form_del_obra,name="form_del_obra"),
     path('contacto',contacto,name="contacto"),
     path('nosotros',nosotros,name="nosotros"),
+    path('pantallalogin',pantallalogin,name="pantallalogin"),
     path('inicio-sesion',iniciosesion,name="iniciosesion"),
      
 ]
